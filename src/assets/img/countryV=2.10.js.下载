@@ -1,0 +1,175 @@
+$(function(){
+	//首页数据请求
+	var vm=null;
+	var conVm=null;
+	$.ajax({
+		url:'http://api.11visa.com/website/home',
+		type:'post',
+		dataType:"json",
+		success:function(Data){
+
+			if(Data.body.length==0 ||Data.ret==-1){
+				window.open('404.html','_self');
+			}
+			var now=0;
+			new Vue({
+				el:"#product",
+				data:{
+					hotProduct:Data.body.hot_product,
+					hotDestination:Data.body.hot_destinations,
+					continents:Data.body.continents,
+					search:Data.body.search,
+				}
+			});
+			new Vue({
+				el:"#destination",
+				data:{
+					hotDestination:Data.body.hot_destinations,
+				}
+			});
+			new Vue({
+				el:".country-list",
+				data:{
+					continents:Data.body.continents,
+					cn_name:['亚洲','欧洲','美洲','大洋洲','非洲'],
+					en_name:['Asia','Europe','America','Oceania','Africa']
+				},
+				mounted:function(){
+					conVm=this;
+				}
+
+			});
+			new Vue({
+				el:".banner-search",
+				data:{
+					country:'',
+					searchMatch:[],
+					search:Data.body.search,
+					show:false,
+					showSearch:true
+				},
+				methods:{
+					goto:function(){
+						window.open('visa.html','_self')
+					},
+					focused:function(){
+						$('#search-input').get(0).placeholder='',
+						this.showSearch=true;
+						this.searchMatchFn();
+					},
+					blur:function(){
+						if(this.country==''){
+							$('#search-input').get(0).placeholder='输入你想去的国家或地区名称'
+						}
+					},
+					searchMatchFn:function(e){
+						var str=this.country.replace(/\s+/g,'').toLowerCase();
+						if(str=='')return this.show=false,this.searchMatch=[];
+						this.searchMatch=[];
+						var a=[];
+						this.show=false;
+						for(var i=0;i<this.search.length;i++){
+							 var country=this.search[i].country;
+							 var en_country=this.search[i].en_country.toLowerCase();
+							 var cn_country=this.search[i].cn_country.toLowerCase();
+
+							 //console.log(this.search[i].country);
+							 
+							 if(country.indexOf(str)>-1 || en_country.indexOf(str)>-1 ||cn_country.indexOf(str)>-1){
+							 	if (a.length==0) {
+							 		 var newType=this.search[i].visa_type.split(' ').unique().join(' ');
+							 		 this.search[i].visa_type=newType;
+							 		a.push(this.search[i]);
+							 		this.searchMatch=a;							 		
+							 	}
+							 	else{
+							 		m=a.length
+
+							 		// if(a.every(function(v){
+							 		// 	return v.country!=this.search[i].country;
+							 		// }.bind(this))){
+							 		// 	a.push(this.search[i]);
+							 		// 	this.searchMatch=a;
+							 		// 		this.show=false;
+							 		// }
+							 		
+							 		var bool=true;
+							 		for(var j=0;j<m;j++){
+							 			//console.log(this.search[i].country);
+							 			if (a[j].country==this.search[i].country) {
+							 				bool=false;
+							 			}
+							 		}
+							 		if(bool){
+							 			if(a.length>=8)return
+							 			var newType=this.search[i].visa_type.split(' ').unique().join(' ');
+							 			this.search[i].visa_type=newType;
+							 			a.push(this.search[i]);
+						 				this.searchMatch=a;
+						 				this.show=false;
+							 		}
+
+							 	}						
+							 }
+						}
+						// if(e.keyCode==32||e.keyCode==13){
+						// 	if (this.searchMatch.length==0) {
+						// 		this.show=true;
+						// 	}
+						// }
+						if (this.searchMatch.length==0) {
+								this.show=true;
+							}
+						
+					},
+					disappear:function(){},
+					fnCom:function(){}
+				},
+				mounted:function(){
+					vm=this;
+				}
+
+			});
+		},
+		error:function(){
+			window.open('404.html','_self');
+		}
+	})
+	Array.prototype.unique=function(){
+		 var res = [];
+		 var json = {};
+		 for(var i = 0; i < this.length; i++){
+		  	if(!json[this[i]]){
+		   		res.push(this[i]);
+		   		json[this[i]] = 1;
+		  	}
+		 }
+		 return res;
+	}
+	//map click
+	$('.mapCon li').hover(function(){
+		if(!$(this).hasClass('stage-active')){
+			$(this).children('img').css('opacity','0.5')
+		}
+	},function(){
+		if(!$(this).hasClass('stage-active')){
+			$(this).children('img').css('opacity','0.3')
+		}
+	})
+	$(".mapCon li").click(function(){
+		if(!$(this).hasClass("stage-active")){
+			$(this).addClass("stage-active").closest("li").siblings().removeClass("stage-active").find('img').css('opacity','0.3');
+			$(".list-wap").css({"display":"none"})
+			var w=conVm.en_name[$(this).index()]
+			$("#"+w).css({"display":"block",'borderWidth':'0'})
+		}else{
+			$(this).removeClass('stage-active');
+			$(".list-wap").css({"display":"block",'borderWidth':'1px'});
+		}
+	})
+	$(document).click(function(){
+		vm.show=false;
+		vm.showSearch=false;
+	})
+	$(window).scrollTop(0);
+})

@@ -1,0 +1,635 @@
+* {
+	margin: 0;
+	padding: 0
+}
+
+body {
+	font: 14px PingFang SC,Microsoft YaHei,Helvetica,Arial,sans-serif;
+	background: #fff;
+	-webkit-text-size-adjust: 100%;
+	margin: 0 auto;
+	font-weight: 200
+}
+
+a {
+	color: #2d374b;
+	text-decoration: none;
+	cursor: pointer
+}
+
+i,em {
+	font-style: normal
+}
+
+li {
+	list-style: none
+}
+
+img {
+	border: 0;
+	vertical-align: middle;
+	display: block
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0
+}
+
+p {
+	word-wrap: break-word
+}
+
+input {
+	outline: 0
+}
+
+input::-ms-clear {
+	display: none
+}
+
+.wrap {
+	margin: 0 auto
+}
+
+.fl {
+	float: left
+}
+
+.fr {
+	float: right
+}
+
+.clear:after {
+	content: ".";
+	clear: both;
+	display: block;
+	height: 0;
+	width: 0;
+	font-size: 1px;
+	visibility: hidden;
+	overflow: hidden
+}
+
+.content {
+	width: 1200px;
+	margin-left: auto;
+	margin-right: auto
+}
+
+.cl {
+	clear: both
+}
+
+.triangle {
+	display: block;
+	width: 0;
+	height: 0;
+	border: 10px solid transparent;
+	position: absolute
+}
+
+.public {
+	position: absolute;
+	bottom: 68px;
+	left: 22px;
+	z-index: 100;
+	width: 160px;
+	height: 186px;
+	text-align: center;
+	background: #fff;
+	display: none
+}
+
+.public img {
+	margin: 6px
+}
+
+.public .triangle {
+	bottom: -20px;
+	left: 69px;
+	border-top: 10px solid #fff
+}[v-cloak] {
+	visibility: hidden
+}
+
+hr {
+	background-color: #ff5a60;
+	border: 0 none;
+	height: 3px;
+	margin: 26px 0;
+	width: 64px
+}
+
+.hand {
+	cursor: pointer
+}
+
+#nav {
+	height: 64px;
+	line-height: 64px;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	z-index: 1000;
+	background: #fff;
+	box-shadow: 0 0 6px hsla(0,0%,47%,0.2)
+}
+
+#nav .content {
+	background: #fff;
+	height: 64px
+}
+
+#nav .nav_logo {
+	background-image: url("../img/logo-o.png");
+	background-repeat: no-repeat;
+	background-size: 40px;
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	margin-top: 12px
+}
+
+@media only screen and (-Webkit-min-device-pixel-ratio:1.5) {
+	.icon {
+		background-image: url(../img/logo@2x.png)
+	}
+}
+
+.navCon h1 {
+	font-size: 20px;
+	width: 20%;
+	font-weight: 200;
+	color: #fff;
+	margin-left: 10px
+}
+
+.navCon ul {
+	text-align: right;
+	height: 80px;
+	width: 470px
+}
+
+.navCon li {
+	height: 80px
+}
+
+.navCon li a {
+	display: inline-block;
+	font-size: 16px;
+	margin-left: 44px;
+	color: #a1a1a1;
+	padding-bottom: 3px;
+	height: 44px
+}
+
+.navCon li a:hover {
+	color: #f1575d
+}
+
+.navCon .nav-active {
+	color: #f1575d;
+	border-bottom: 2px solid #ff5a60
+}
+
+.mapCon {
+	position: relative;
+	z-index: 2
+}
+
+.mapCon #america {
+	display: block;
+	width: 402px;
+	height: 450px;
+	position: absolute;
+	z-index: 5;
+	left: 22px;
+	top: 18px;
+	overflow: hidden
+}
+
+.mapCon #europe {
+	display: block;
+	width: 339px;
+	height: 189px;
+	position: absolute;
+	z-index: 5;
+	left: 335px;
+	top: 11px;
+	overflow: hidden
+}
+
+.mapCon #africa {
+	display: block;
+	width: 228px;
+	height: 209px;
+	position: absolute;
+	z-index: 5;
+	left: 487px;
+	top: 194px;
+	overflow: hidden
+}
+
+.mapCon #asia {
+	display: block;
+	width: 480px;
+	height: 300px;
+	position: absolute;
+	z-index: 5;
+	left: 630px;
+	top: 27px;
+	overflow: hidden
+}
+
+.mapCon #oceania {
+	display: block;
+	width: 215px;
+	height: 144px;
+	position: absolute;
+	z-index: 5;
+	left: 915px;
+	top: 297px;
+	overflow: hidden
+}
+
+.mapCon img {
+	display: block;
+	position: absolute;
+	z-index: 6;
+	opacity: .3
+}
+
+.mapCon #america span {
+	position: absolute;
+	left: 184px;
+	top: 152px;
+	z-index: 10
+}
+
+.mapCon #europe span {
+	position: absolute;
+	left: 239px;
+	top: 126px;
+	z-index: 10
+}
+
+.mapCon #africa span {
+	position: absolute;
+	left: 114px;
+	top: 64px;
+	z-index: 10
+}
+
+.mapCon #asia span {
+	position: absolute;
+	left: 188px;
+	top: 130px;
+	z-index: 10
+}
+
+.mapCon #oceania span {
+	position: absolute;
+	left: 47px;
+	top: 57px;
+	z-index: 10
+}
+
+.mapCon span {
+	color: #fff;
+	font-size: 18px;
+	line-height: normal
+}
+
+.mapCon em {
+	display: none;
+	width: 24px;
+	height: 34px;
+	position: absolute;
+	z-index: 8;
+	background: url(../img/icon-location.png) no-repeat center center
+}
+
+.mapCon #america em {
+	left: 190px;
+	top: 118px
+}
+
+.mapCon #europe em {
+	left: 245px;
+	top: 88px
+}
+
+.mapCon #africa em {
+	left: 120px;
+	top: 26px
+}
+
+.mapCon #asia em {
+	left: 194px;
+	top: 92px
+}
+
+.mapCon #oceania em {
+	left: 60px;
+	top: 19px
+}
+
+.mapCon .stage-active img {
+	opacity: 1!important
+}
+
+.mapCon .stage-active span {
+	color: #444
+}
+
+.mapCon .stage-active em {
+	display: inline-block
+}
+
+.country-list-con {
+	padding: 0 10px;
+	width: 1000px
+}
+
+.country-list {
+	margin-top: 30px;
+	margin-bottom: 50px
+}
+
+.country-list .list-right p {
+	display: inline-block
+}
+
+.list-left {
+	width: 13%;
+	font-size: 28px;
+	color: #333
+}
+
+.list-right {
+	width: 87%;
+	line-height: 40px
+}
+
+.list-wap {
+	padding: 20px 0 26px 0;
+	border-top: 1px solid #f0f0f0
+}
+
+.list-wap:nth-of-type(1) {
+	border: 0
+}
+
+.list-right a {
+	width: 290px;
+	display: inline-block;
+	padding-right: 20px;
+	font-size: 18px;
+	color: #aaa;
+	cursor: pointer;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap
+}
+
+.list-right a em {
+	color: #333
+}
+
+.list-right a:nth-of-type(3n) {
+	width: 228px
+}
+
+.list-right a i {
+	color: #aaa;
+	margin-left: 8px
+}
+
+#footer {
+	height: 326px;
+	background-color: #38383e;
+	border: 1px solid black;
+	position: relative;
+	/*width: 100%*/
+}
+
+.hd {
+	color: #afafb2
+}
+
+.footer-info {
+	margin: 73px auto
+}
+
+.footer-info li {
+	float: left;
+	background: url(../img/part-line.png) no-repeat right center;
+	height: 158px
+}
+
+.footer-info li:nth-of-type(3) {
+	background: 0
+}
+
+.footer-info .code {
+	display: inline-block;
+	margin-left: 40px;
+	margin-right: 47px
+}
+
+.footer-info .code:nth-of-type(1) {
+	margin-right: 0
+}
+
+.footer-info-code {
+	padding-left: 34px
+}
+
+.code p {
+	margin-top: 10px;
+	text-align: center;
+	color: #fff;
+	line-height: 14px;
+	opacity: .8
+}
+
+.footer-info-link {
+	padding-left: 58px;
+	position: relative
+}
+
+.footer-info-phone .hand {
+	display: inline-block;
+	background: url(../img/footer.png);
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-position: -6px -5px;
+	margin-left: 27px;
+	margin-top: 22px
+}
+
+.footer-info-phone .blog {
+	background-position: -76px -5px
+}
+
+.footer-info-phone .tel {
+	margin-left: 16px
+}
+
+.footer-info-link .show {
+	display: block
+}
+
+.footer-info-link a {
+	color: #fff;
+	display: block;
+	font-size: 20px;
+	height: 20px;
+	margin-top: 30px;
+	line-height: 20px
+}
+
+.footer-info-link>p {
+	float: left
+}
+
+.footer-info-link p:nth-of-type(2) {
+	margin-left: 40px;
+	margin-right: 45px
+}
+
+.footer-info-link a:first-child {
+	margin-top: 42px
+}
+
+.footer-info .footer-info-phone {
+	margin-left: 44px;
+	width: 280px;
+	height: 128px;
+	position: relative
+}
+
+.footer-info-phone span.crea {
+	translateY(-50pxgoodsLists))
+}
+
+.footer-info-phone span {
+	margin-top: 22px;
+	color: #fff;
+	font-size: 20px;
+	display: inline-block
+}
+
+.footer-info-phone span.hd {
+	color: #afafb2
+}
+
+.friend-link {
+	text-align: center;
+	height: 18px;
+	line-height: 18px
+}
+
+.friend-link span {
+	display: inline-block;
+	color: #747478;
+	padding: 0 10px;
+	border-right: 1px solid #747478;
+	line-height: 10px
+}
+
+.friend-link span:last-of-type {
+	border: 0
+}
+
+.copyright {
+	text-align: center;
+	color: #747478;
+	font-size: 14px;
+	margin-top: 25px
+}
+
+.friend-link a {
+	color: #747478;
+	font-size: 14px
+}
+
+#footer a:hover {
+	opacity: .8
+}
+
+.hot-box {
+	display: none;
+	padding: 20px;
+	background: #fff;
+	position: absolute;
+	bottom: 276px;
+	z-index: 1000;
+	height: 350px;
+	width: 725px;
+	margin-left: -20%
+}
+
+.hot-box li {
+	background-image: none;
+	width: 100px;
+	height: 50px;
+	padding: 5px
+}
+
+.hot-box li a {
+	color: #505050;
+	font-size: 14px
+}
+
+.hot-box li a:hover {
+	color: red
+}
+
+.hot-box .triangle {
+	bottom: -25px;
+	left: 50%;
+	border-top: 15px solid #fff;
+	-webkit-transform: translateX(15px);
+	transform: translateX(15px)
+}
+
+.crea {
+	position: absolute;
+	top: 10px
+}
+
+.footer-info-phone .wechat {
+	margin-left: 104px
+}
+
+#footer .care {
+	position: absolute;
+	background: #fff;
+	top: 82px;
+	text-align: center;
+	left: 47px;
+	display: none
+}
+
+#footer .show {
+	display: block
+}
+
+.care img {
+	width: 150px;
+	height: 150px
+}
+
+.care .tri {
+	display: block;
+	width: 0;
+	height: 0;
+	border: 10px solid transparent;
+	border-bottom: 10px solid #fff;
+	position: absolute;
+	top: -42px;
+	left: 67px
+}
