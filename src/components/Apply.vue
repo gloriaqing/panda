@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="aly">
     <div class="bg-asia">
 
       <div class="header">
-        <img src="../assets/img/arrow2.svg" />
+        <img src="../assets/img/arrow2.svg" @click="home" />
         <img src="../assets/img/mari.png" class="flag" />
         <img src="../assets/img/分享.svg" />
       </div>
@@ -73,12 +73,12 @@
       <h3>所需资料</h3>
       
          
-      <div v-swiper:mySwiper="swiperOption">
+      <!-- <div v-swiper:mySwiper="swiperOption">
         <div class="swiper-wrapper">
           <div class="swiper-slide" v-for="banner in banners">
             <img :src="banner">
           </div>
-        </div>
+        </div> -->
     <!-- <div class="swiper-pagination swiper-pagination-bullets"></div> -->
     </div>
       
@@ -99,33 +99,68 @@
           <img src="../assets/img/glass.svg" />
         </div>
       </div> -->
+
+    <div class="out" v-show="ok">
+      <div class="out-info">
+        <a @click="go"><img src="../assets/img/mul.svg" /></a>
+        <h3>出行信息</h3>
+      </div>
+      <div class="out-date">
+        <h3>预计出行日期</h3>
+        
+        <div class="date" @click="getDate">选择日期</div>
+      </div>
+      <router-view></router-view>
+      <div class="apply-who">
+        <h3>申请人信息</h3>
+        <a>选择申请人</a>
+      </div>
+      <div class="next">下一步</div>
     </div>
+    <div class="footer">
+      <a><img src="../assets/img/tel.svg" />咨询</a>
+      <span @click="del">开始办理</span>
+    </div>
+    <Outinfo @aa="aaff" v-show="hide"></Outinfo>
   </div>
 </template>
 
 <script>
-
+import Outinfo from "../components/Outinfo"
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default {
   // name: 'hello',
 
   components:{
      swiper,
-     swiperSlide
+     swiperSlide,
+     Outinfo
   },
   data () {
     return {
-       // banners: [ '/1.jpg', '/2.jpg', '/3.jpg' ],
-       banners: [ '/assets/img/house.svg', '/assets/img/house.svg', '/assets/img/house.svg' ],
-        swiperOption: {
-          autoplay: 1000,
-          initialSlide: 1,
-          loop: true,
-          pagination: '.swiper-pagination',
-          onSlideChangeEnd: swiper => {
-            console.log('onSlideChangeEnd', swiper.realIndex)
-          }
-      }
+     ok:false,
+     hide:false,
+     a: ''
+    }
+  },
+  methods:{
+    home(){
+      this.$router.push("./home")
+    },
+    getDate(){
+      console.log(3);
+     this.$router.push({name:'Outinfo'})
+     // this.hide=true
+    },
+    go:function(){
+      this.ok=false
+    },
+    del:function(){
+      this.ok=true
+    },
+    aaff(tm) {
+      this.a = tm;
+      console.log(1213)
     }
   }
 
@@ -134,6 +169,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+/*.d{background: red;height: 1rem;width: 100%}*/
 .ban span{color: #fff}
 .bg-asia{width: 100%;height: 3.64rem;background: url("../assets/img/bg-asia.png")no-repeat;background-position:bottom center; }
 .header{display: flex;justify-content:space-between;}
@@ -180,6 +216,23 @@ export default {
 .select{height: .5rem;overflow-x:auto;}
 .select-wrap{width: .48rem;height: .48rem;border-radius: 50%;border: 1px solid #d5d5d5;margin-right: .4rem;display: inline-block;}
 .select-wrap img{vertical-align: middle;width: .28rem;height: .24rem;margin: .1rem auto 0;}
-.swiper-slide{width: .5rem}
-.swiper-wrapper{transform: translate3d(-50px, 0px, 0px)}
+
+.footer{width: 100%;position: fixed;bottom: 0.1rem}
+
+.footer a{display: block;float: left;margin-left: .26rem;color: #d0d0d0;text-align: center;}
+.footer img{display: block;}
+.footer span{display: block;width: 2.9rem;height: .45rem;background: #ff5a60;font-size: .17rem;color: #fff;line-height: .45rem;text-align: center;float: right;margin-right: .1rem}
+
+.out{margin-top: -3.6rem;background: #fff;height: 6rem;position: fixed;z-index: 1100;width: 100%}
+.out-info{text-align: center;overflow: hidden;padding: .15rem 0}
+.out-info img{float: left;width: .2rem;height: .2rem;margin-left: .1rem}
+.out-date h3{text-align: left;border-top: 1px solid #f4f4f4;padding: .25rem 0;
+  margin-left: .1rem}
+.out-date .date{display:block;width: 3.5rem;height: .4rem;margin-left: .1rem;border: .01rem solid #f4f4f4;outline: medium;line-height: .4rem;text-align: left;color: #afafaf}
+.apply-who{margin-left: .1rem}
+.apply-who a{display: block;width: 3.5rem;height: .25rem;border: .01rem solid red;text-align: center;line-height: .25rem;color: #ff5a60}
+.apply-who h3{padding: .21rem 0}
+.apply-who span{text-align: left;display: block;}
+.next{height: .45rem;width: 3.5rem;background: #ffa8ab;font-size: .16rem;color: #fff;text-align: center;margin: 2.04rem auto 0;line-height: .45rem;}
+
 </style>

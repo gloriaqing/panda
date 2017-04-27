@@ -9,6 +9,7 @@ import List from '../pages/List'
 import Me from '../pages/Me'
 import Left from '../pages/Left'
 import Apply from '../components/Apply'
+import Outinfo from '../components/Outinfo'
 
 Vue.use(Router)
 
@@ -46,7 +47,15 @@ export default new Router({
     {
        path:'/Apply',
        name:'Apply',
-       component:Apply
+       component:Apply,
+       children:[
+               {
+                path:"/Outinfo",
+                name:"Outinfo",
+                component:Outinfo
+               }
+       ]
     }
+   
   ]
 })

@@ -12,7 +12,7 @@
 
 		me:function(){
 			
-			this.$router.push({path:'./me'})
+			this.$router.push({path:'./outinfo'})
 			}
 		}
 	}
