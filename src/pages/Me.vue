@@ -76,11 +76,16 @@
 				</ul>			
 			</div>
 		</div>
+		<End></End>
 	</div>
 </template>
 
 <script>
+import End from "../components/End"
 export default{
+	components:{
+		End
+	},
 	methods:{
 		order:function(){
 			

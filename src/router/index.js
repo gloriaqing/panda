@@ -8,15 +8,21 @@ import Home from '../pages/Home'
 import List from '../pages/List'
 import Me from '../pages/Me'
 import Left from '../pages/Left'
-
+import Apply from '../components/Apply'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    // mode:'history'
+    {
+        path:'/',
+        redirect:{name:'Home'}
+        
+    },
    
     {
-    	path:'/Home',
+    	path:'/home',
     	name:'Home',
     	component:Home
     },
@@ -35,6 +41,12 @@ export default new Router({
         path:'/left',
         name:'Left',
         component:Left
+    }
+    ,
+    {
+       path:'/Apply',
+       name:'Apply',
+       component:Apply
     }
   ]
 })

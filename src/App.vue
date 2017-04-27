@@ -3,13 +3,13 @@
     
   	<router-view></router-view>
 
-  	<div class="footer">
+  <!-- 	<div class="footer">
   		<ul>
 	  		<li><router-link to="/home">签证</router-link></li>
 		    <li><router-link to="/list">订单</router-link></li>
 		    <li><router-link to="/me">我的</router-link></li>
 		</ul>
-  	</div>
+  	</div> -->
     
     
   </div>
@@ -42,9 +42,5 @@ export default {
  	top:6.17rem;
  	line-height: .5rem;
  }
- .footer ul{display:flex;}
- .footer ul li{list-style: none;width: 33.3%;text-align: center;height: .5rem}
- .footer ul li a{};
- .footer ul li img{width: .5rem;height: .4rem}
- .router-link-active{color: red}
+
 </style>
