@@ -97,7 +97,7 @@ export default{
         alert(this.formatDate( date.getFullYear() , date.getMonth() + 1, date.getDate()));
         var dd=this.formatDate( date.getFullYear() , date.getMonth() + 1, date.getDate());
         this.$emit("aa",1);
-        console.log(this.$emit("aa"))
+        // console.log(this.$emit("aa"))
     },
     pickPre: function(year, month) {
         //  setDate(0); 上月最后一天

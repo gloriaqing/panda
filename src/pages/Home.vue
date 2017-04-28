@@ -38,7 +38,7 @@
         </div>
       </div>
       <div class="pic-tips">
-        <img src="../assets/img/visa.png"/>
+        <img src="/static/img/visainfo.png"/>
         <img src="../assets/img/invite.png"/>
       </div>
     </div>
@@ -213,7 +213,7 @@
       <div class="end">
          <img src="../assets/img/end.png"  />
       </div>
-      <End></End>
+      <End isActive="0"></End>
     </div>
 	</div>
   
@@ -235,12 +235,14 @@ export default {
       isShow:true
     }
   },
+
   methods:{
     amer:function(){
       console.log("ee");
       this.$router.push({path:'./Apply'})
     }
   },
+
   components:{
     End
   }

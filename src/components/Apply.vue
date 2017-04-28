@@ -72,17 +72,11 @@
     <div class="need-thing">
       <h3>所需资料</h3>
       
-         
-      <!-- <div v-swiper:mySwiper="swiperOption">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide" v-for="banner in banners">
-            <img :src="banner">
-          </div>
-        </div> -->
-    <!-- <div class="swiper-pagination swiper-pagination-bullets"></div> -->
+    
     </div>
       
-      <!-- <div class="select">
+    <div class="select">
+      <div class="select-wrapper">
         <div class="select-wrap">
           <img src="../assets/img/house.svg" />
         </div>
@@ -98,7 +92,8 @@
         <div class="select-wrap">
           <img src="../assets/img/glass.svg" />
         </div>
-      </div> -->
+      </div>
+    </div>
 
     <div class="out" v-show="ok">
       <div class="out-info">
@@ -213,7 +208,9 @@ export default {
 
 .need-thing{text-align: center;}
 .need-thing h3{font-style: normal;}
-.select{height: .5rem;overflow-x:auto;}
+.select{height: .5rem;width: 100%;}
+.select-wrapper{width: 1200px;overflow-x:auto;height: .6rem}
+
 .select-wrap{width: .48rem;height: .48rem;border-radius: 50%;border: 1px solid #d5d5d5;margin-right: .4rem;display: inline-block;}
 .select-wrap img{vertical-align: middle;width: .28rem;height: .24rem;margin: .1rem auto 0;}
 

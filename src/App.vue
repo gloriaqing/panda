@@ -3,13 +3,6 @@
     
   	<router-view></router-view>
 
-  <!-- 	<div class="footer">
-  		<ul>
-	  		<li><router-link to="/home">签证</router-link></li>
-		    <li><router-link to="/list">订单</router-link></li>
-		    <li><router-link to="/me">我的</router-link></li>
-		</ul>
-  	</div> -->
     
     
   </div>

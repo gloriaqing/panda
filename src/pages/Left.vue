@@ -9,14 +9,11 @@
 <script>
 	export default{
 		methods:{
-
-		me:function(){
-			
+		me:function(){		
 			this.$router.push({path:'./outinfo'})
 			}
 		}
 	}
 </script>
 <style scoped>
-
 </style>

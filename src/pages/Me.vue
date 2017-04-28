@@ -76,7 +76,7 @@
 				</ul>			
 			</div>
 		</div>
-		<End></End>
+		<End isActive="2"></End>
 	</div>
 </template>
 

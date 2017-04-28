@@ -1,0 +1,122 @@
+$(function() {
+	var system = {
+		win: false,
+		mac: false,
+		xll: false
+	};
+	var p = navigator.platform;
+	system.win = p.indexOf("Win") == 0;
+	system.mac = p.indexOf("Mac") == 0;
+	system.xll = p == "X11";
+	if (!(system.win || system.mac || system.xll)) {
+		location.href = "/mobile/index.html"
+	}
+	var $downloadApp = $(".downloadApp");
+	var $download = $(".download");
+	var $document = $(document);
+	var $toVedio = $(".toVedio");
+	$(window).scroll(function() {
+		var $opacity = $(this).scrollTop() / 200;
+		$("#nav").css({
+			"background-color": "rgba(255,255,255," + $opacity + ")"
+		});
+		if ($(this).scrollTop() >= 80) {
+			$("#nav").css({
+				"position": "fixed",
+				"box-shadow": "0 0 6px hsla(0, 0%, 47%, 0.2)"
+			});
+			$("#nav .nav_logo").css({
+				"background-image": 'url(./img/logo-o.png)'
+			});
+			$("#nav ul a").not(".nav_logo").css({
+				"color": "#a1a1a1",
+				"opacity": $opacity
+			});
+			$("#nav h1 a").not(".nav_logo").css({
+				"color": "#444"
+			});
+			$("#nav li a").not(".nav-active").hover(function() {
+				$(this).css({
+					"color": "#f1575d"
+				})
+			}, function() {
+				$(this).css({
+					"color": "#a1a1a1"
+				})
+			});
+			$(".nav-active").css({
+				"color": "#f1575d",
+				"opacity": $opacity,
+				"border-color": "#f1575d"
+			})
+		} else {
+			$("#nav").css({
+				"position": "absolute",
+				"box-shadow": "none"
+			});
+			$("#nav .nav_logo").css({
+				"background-image": 'url(./img/logo-w.png)'
+			});
+			$(".nav-active").css({
+				"color": "#fff",
+				"opacity": 1,
+				"border-color": "#fff"
+			});
+			$("#nav li a").not(".nav-active").css({
+				"color": "#fff",
+				"opacity": 0.85
+			});
+			$("#nav h1 a").css({
+				"color": "#fff",
+				"opacity": "1"
+			});
+			$("#nav li a").not(".nav-active").hover(function() {
+				$(this).css({
+					"color": "#fff",
+					"opacity": "1"
+				})
+			}, function() {
+				$(this).css({
+					"color": "#fff",
+					"opacity": "0.6"
+				})
+			})
+		}
+	});
+	$toVedio.click(function() {
+		$(".dark").css("display", "block");
+		$(".movie").show();
+		$("#homeVideo").get(0).play()
+	});
+	$(".close").click(function() {
+		$(".dark").css("display", "none");
+		$("#homeVideo").get(0).pause();
+		$("#homeVideo").get(0).currentTime = 0;
+		$(".movie").hide()
+	});
+	$downloadApp.mouseenter(function() {
+		$download.show()
+	});
+	$downloadApp.mouseleave(function() {
+		$download.hide()
+	});
+	$downloadApp.click(function(e) {
+		if (!$download.hasClass("show")) {
+			e.stopPropagation();
+			$download.show();
+			$download.addClass("show");
+			$(this).off("mouseleave")
+		} else {}
+	});
+	$document.click(function(e) {
+		if ($download.hasClass("show")) {
+			if (!$(e.target).parent().hasClass("download") && !$(e.target).hasClass("download")) {
+				$download.removeClass("show");
+				$download.hide();
+				$downloadApp.mouseleave(function() {
+					$download.hide()
+				})
+			}
+		}
+	})
+});
